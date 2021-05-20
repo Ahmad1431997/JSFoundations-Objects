@@ -78,12 +78,8 @@ function getChannelByName(channelName, channels) {
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
   // Your code here
-  for (const channel of channels){
-  //  for (const vidName of channel["videos"] )
-    if ( channel["videos"]["title"] ===videoTitle) return channel;
-  }
-   return;
-  }
+  return (channels.find(channel=> channel.videos.some(video=> video.title===videoTitle)))
+}
 
  console.log(getChannelByVideoTitle("The Universal S", channels));
 
@@ -97,8 +93,12 @@ function getChannelByVideoTitle(videoTitle, channels) {
  ****************************************************************/
 function searchChannels(query, channels) {
   // Your code here
+  let x1= channels.filter((channel=> channel.name.includes(str=> str===query)));
+  let x2= channels.filter((channel=> channel.description.includes(str=> str===query)));
+  if(x1 === true) return x1;
+  else return x2;
 }
-// console.log(searchChannels("the", channels))
+console.log(searchChannels("the", channels))
 
 module.exports = {
   getChannelName,
