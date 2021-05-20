@@ -15,9 +15,10 @@ const channels = require("./channels.json");
  ****************************************************************/
 function getChannelName(channel) {
   // Your code here
+  return channel["name"];
 }
 
-// console.log(getChannelName(channels[0]));
+ console.log(getChannelName(channels[0]));
 
 /**************************************************************
  * numberOfVideos(channel)
@@ -25,9 +26,10 @@ function getChannelName(channel) {
  * - returns the number of videos that channel has
  ****************************************************************/
 function numberOfVideos(channel) {
-  // Your code here
+  // Your code her
+return channel["videos"].length;
 }
-// console.log(numberOfVideos(channels[0]))
+ console.log(numberOfVideos(channels[0]))
 
 /**************************************************************
  * channelHasVideo(videoTitle, channel):
@@ -40,8 +42,13 @@ function numberOfVideos(channel) {
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
   // Your code here
+  for (const vid of channel["videos"]){
+    if (vid === videoTitle);
+    return true;
+  }
+  return false;
 }
-// console.log(channelHasVideo("The Universal S", channels[0]));
+ console.log(channelHasVideo("The Universal S", channels[0]));
 // console.log(channelHasVideo("The Universal S", channels[1]));
 
 /**************************************************************
@@ -54,8 +61,12 @@ function channelHasVideo(videoTitle, channel) {
  ****************************************************************/
 function getChannelByName(channelName, channels) {
   // Your code here
-}
-// console.log(getChannelByName("PowerfulJRE", channels))
+  for (const channel of channels){
+    if ( channel["name"] ===channelName) return channel;
+  }
+   return;
+  }
+ console.log(getChannelByName("PowerfulJRE", channels));
 
 /**************************************************************
  * getChannelByVideoTitle(videoTitle, channels):
@@ -67,8 +78,14 @@ function getChannelByName(channelName, channels) {
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
   // Your code here
-}
-// console.log(getChannelByVideoTitle("The Universal S", channels));
+  for (const channel of channels){
+  //  for (const vidName of channel["videos"] )
+    if ( channel["videos"]["title"] ===videoTitle) return channel;
+  }
+   return;
+  }
+
+ console.log(getChannelByVideoTitle("The Universal S", channels));
 
 /**************************************************************
  * searchChannels(query, channels):
